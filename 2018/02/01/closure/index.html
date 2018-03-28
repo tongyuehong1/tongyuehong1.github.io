@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://tongyuehong1.github.io">
   <title>closure | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="闭包​       当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).">
+  <meta name="description" content="闭包​    当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).  ​">
 <meta name="keywords" content="go基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="closure">
 <meta property="og:url" content="http://tongyuehong1.github.io/2018/02/01/closure/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="闭包​       当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).">
-<meta property="og:updated_time" content="2018-03-28T14:35:22.000Z">
+<meta property="og:description" content="闭包​    当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).  ​">
+<meta property="og:updated_time" content="2018-03-28T14:44:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="closure">
-<meta name="twitter:description" content="闭包​       当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).">
+<meta name="twitter:description" content="闭包​    当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2).  ​">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -170,10 +170,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>​       当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2). </p>
-<p>​      在函数式语言中，匿名函数也被称为闭包，他们可以调用定义在其他环境下的变量。一个闭包继承了函数所声明时的作用域。这种状态（作用域内的变量）都被共享到闭包的环境中，因此这些变量可以在闭包中被操作，直到被销毁。</p>
+        <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>​    当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2). </p>
+<p>​    在函数式语言中，匿名函数也被称为闭包，他们可以调用定义在其他环境下的变量。一个闭包继承了函数所声明时的作用域。这种状态（作用域内的变量）都被共享到闭包的环境中，因此这些变量可以在闭包中被操作，直到被销毁。</p>
 <ul>
 <li><p>示例</p>
+<a id="more"></a>
 <p>（1）a.参考defer.md中defer与匿名函数的使用。</p>
 <p>​          b.使用闭包时，使闭包的环境变量不同。</p>
 <p>​          c. 与（3）中（d）一起学习。</p>
@@ -527,7 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;18年毕业生一枚&lt;br&gt;&lt;br&gt;紧抱go语言大腿，&lt;br/&gt;努力成为程序媛👨‍💻‍&lt;br/&gt;&lt;br/&gt;唯有爱与美食不可辜负💖&lt;br&gt;。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;18年毕业生一枚&lt;br&gt;&lt;br&gt;紧抱go语言大腿，&lt;br/&gt;努力成为程序媛👨‍💻‍&lt;br/&gt;&lt;br/&gt;人生格言，&lt;br/&gt;唯有爱与美食不可辜负💖&lt;br&gt;</div>
   	  	
     	</section>
     
