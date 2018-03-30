@@ -150,6 +150,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/03/session/">session</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/03/session/" class="archive-article-date">
+  	<time datetime="2018-02-03T15:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>mgo是mongodb的Golang驱动。</p>
+<h4 id="Dial"><a href="#Dial" class="headerlink" title="Dial"></a>Dial</h4><hr>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session ,_ := mgo.Dial(<span class="string">"mongodb://127.0.0.1"</span>)</span><br></pre></td></tr></table></figure>
+<p>mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：<a href="https://cardinfolink.github.io/2017/05/17/mgo-session/" target="_blank" rel="noopener">mgo的session与连接池</a>）</p>
+<p>Dial 创建的多个 session 之间使用不同的连接池。而通过Dial出的session通过自身的 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.New" target="_blank" rel="noopener">New</a> 和 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.Copy" target="_blank" rel="noopener">Copy</a> 方法能够创建更多的 session 出来，这些 session 共用底层的连接池。</p>
+<h4 id="session的一致性"><a href="#session的一致性" class="headerlink" title="session的一致性"></a>session的一致性</h4><hr>
+<p>参考官网说明：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Session)</span> <span class="title">SetMode</span><span class="params">(consistency mode, refresh <span class="keyword">bool</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>这是mgo中的SetMode函数，用来变换session的一致性模式。</p>
+<ul>
+<li>session有三种一致性模式：</li>
+</ul>
+<p>（1）Strong 一致性模式（默认使用）</p>
+<p>​      在强一致模式下，session 的读写操作总向 primary 服务器发起并使用一个唯一的连接，即读写都是在主节点上通过同一个连接实现，这样读写是完全一致、有序并且是最新的数据。这种模式在分布式负载架构下没有多少益处，但是保证了读写数据的一致性。</p>
+<p>（2）Monotonic 一致性模式</p>
+<p>​      在Monotonic一致模式下，读到的数据不一定是最新的，但是在同一个session中的一系列读保持着数据一致性，而session中的修改在其后的查询中可以得到体现。</p>
+<p>​       session 的读操作开始是向某个 secondary 服务器发起（且通过一个唯一的连接），只要出现了一次写操作，session 的连接就会切换至 primary 服务器。由此可见此模式下，能够分散一些读操作到 secondary 服务器，但是读操作不一定能够获得最新的数据。</p>
+<p>（3）Eventual 一致性模式</p>
+<p>​        Eventual 对读写分离的性能提升最强。</p>
+<p>​        session 的读操作会向任意的 secondary 服务器发起，多次读操作并不一定使用相同的连接，也就是读操作不一定有序。session 的写操作总是向 primary 服务器发起，但是可能使用不同的连接，也就是写操作也不一定有序。</p>
+<p>可以使用在网上搜索到的一张图（忘了出处，不好意思）来对三种模式进行对比：</p>
+<p><img src="/Users/a5/Documents/setmode.jpg" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongo基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/03/session/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -401,6 +496,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongo基础</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">go基础</a>
