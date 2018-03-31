@@ -15,12 +15,12 @@
 <meta property="og:url" content="http://tongyuehong1.github.io/2018/02/03/session/index.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="Sessionmgo是mongodb的Golang驱动。 Dial 1session ,_ := mgo.Dial(&quot;mongodb://127.0.0.1&quot;) mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：mgo的session与连接池） Dial">
-<meta property="og:image" content="http://tongyuehong1.github.io/2018/02/03/assets/image/setmode.jpg">
-<meta property="og:updated_time" content="2018-03-30T15:44:32.000Z">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/setmode.jpg">
+<meta property="og:updated_time" content="2018-03-31T06:03:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="session的一致性">
 <meta name="twitter:description" content="Sessionmgo是mongodb的Golang驱动。 Dial 1session ,_ := mgo.Dial(&quot;mongodb://127.0.0.1&quot;) mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：mgo的session与连接池） Dial">
-<meta name="twitter:image" content="http://tongyuehong1.github.io/2018/02/03/assets/image/setmode.jpg">
+<meta name="twitter:image" content="http://tongyuehong1.github.io/assets/blogImg/setmode.jpg">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -193,7 +193,7 @@
 <p>​        Eventual 对读写分离的性能提升最强。</p>
 <p>​        session 的读操作会向任意的 secondary 服务器发起，多次读操作并不一定使用相同的连接，也就是读操作不一定有序。session 的写操作总是向 primary 服务器发起，但是可能使用不同的连接，也就是写操作也不一定有序。</p>
 <p>可以使用在网上搜索到的一张图（忘了出处，不好意思）来对三种模式进行对比：</p>
-<p><img src="../assets/image/setmode.jpg" alt=""></p>
+<p><img src="/assets/blogImg/setmode.jpg" alt=""></p>
 
       
 
@@ -426,11 +426,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mgo基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">go基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">go基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">mgo基础</a>
               </li>
             
             <div class="clearfix"></div>
