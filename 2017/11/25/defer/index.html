@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tongyuehong1.github.io">
-  <title>session的一致性 | 博客</title>
+  <title>defer | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Sessionmgo是mongodb的Golang驱动。 Dial 1session ,_ := mgo.Dial(&quot;mongodb://127.0.0.1&quot;) mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：mgo的session与连接池） Dial">
-<meta name="keywords" content="mgo基础">
+  <meta name="description" content="defer 特性 123456789101112(1)defer表达式中变量的值在defer表达式被定义时就已经明确。即当defer被声明时，其参数就会被实时解析。(2)后进先出      defer后的表达式被放入一个list中，相当于一个栈，后进先出。(3)defer可改变函数中的命名返回值(4)defer的使用经常伴随闭包和匿名函数的使用。   闭包：可以使用另外一个函数作用域中的变量的函数">
+<meta name="keywords" content="go基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="session的一致性">
-<meta property="og:url" content="http://tongyuehong1.github.io/2018/02/03/session/index.html">
+<meta property="og:title" content="defer">
+<meta property="og:url" content="http://tongyuehong1.github.io/2017/11/25/defer/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="Sessionmgo是mongodb的Golang驱动。 Dial 1session ,_ := mgo.Dial(&quot;mongodb://127.0.0.1&quot;) mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：mgo的session与连接池） Dial">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/setmode.jpg">
-<meta property="og:updated_time" content="2018-03-31T06:03:05.000Z">
+<meta property="og:description" content="defer 特性 123456789101112(1)defer表达式中变量的值在defer表达式被定义时就已经明确。即当defer被声明时，其参数就会被实时解析。(2)后进先出      defer后的表达式被放入一个list中，相当于一个栈，后进先出。(3)defer可改变函数中的命名返回值(4)defer的使用经常伴随闭包和匿名函数的使用。   闭包：可以使用另外一个函数作用域中的变量的函数">
+<meta property="og:updated_time" content="2018-04-03T05:16:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="session的一致性">
-<meta name="twitter:description" content="Sessionmgo是mongodb的Golang驱动。 Dial 1session ,_ := mgo.Dial(&quot;mongodb://127.0.0.1&quot;) mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：mgo的session与连接池） Dial">
-<meta name="twitter:image" content="http://tongyuehong1.github.io/assets/blogImg/setmode.jpg">
+<meta name="twitter:title" content="defer">
+<meta name="twitter:description" content="defer 特性 123456789101112(1)defer表达式中变量的值在defer表达式被定义时就已经明确。即当defer被声明时，其参数就会被实时解析。(2)后进先出      defer后的表达式被放入一个list中，相当于一个栈，后进先出。(3)defer可改变函数中的命名返回值(4)defer的使用经常伴随闭包和匿名函数的使用。   闭包：可以使用另外一个函数作用域中的变量的函数">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -152,48 +150,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-session" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-defer" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      session的一致性
+      defer
     </h1>
   
 
         
-        <a href="/2018/02/03/session/" class="archive-article-date">
-  	<time datetime="2018-02-03T15:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+        <a href="/2017/11/25/defer/" class="archive-article-date">
+  	<time datetime="2017-11-25T02:59:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>mgo是mongodb的Golang驱动。</p>
-<h4 id="Dial"><a href="#Dial" class="headerlink" title="Dial"></a>Dial</h4><hr>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session ,_ := mgo.Dial(<span class="string">"mongodb://127.0.0.1"</span>)</span><br></pre></td></tr></table></figure>
-<p>mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：<a href="https://cardinfolink.github.io/2017/05/17/mgo-session/" target="_blank" rel="noopener">mgo的session与连接池</a>）</p>
-<p>Dial 创建的多个 session 之间使用不同的连接池。而通过Dial出的session通过自身的 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.New" target="_blank" rel="noopener">New</a> 和 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.Copy" target="_blank" rel="noopener">Copy</a> 方法能够创建更多的 session 出来，这些 session 共用底层的连接池。<br><a id="more"></a></p>
-<h4 id="session的一致性"><a href="#session的一致性" class="headerlink" title="session的一致性"></a>session的一致性</h4><hr>
-<p>参考官网说明：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Session)</span> <span class="title">SetMode</span><span class="params">(consistency mode, refresh <span class="keyword">bool</span>)</span></span></span><br></pre></td></tr></table></figure>
-<p>这是mgo中的SetMode函数，用来变换session的一致性模式。</p>
-<ul>
-<li>session有三种一致性模式：</li>
+        <h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><ul>
+<li><p>特性</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)<span class="keyword">defer</span>表达式中变量的值在<span class="keyword">defer</span>表达式被定义时就已经明确。即当<span class="keyword">defer</span>被声明时，其参数就会被实时解析。</span><br><span class="line">(<span class="number">2</span>)后进先出      <span class="keyword">defer</span>后的表达式被放入一个list中，相当于一个栈，后进先出。</span><br><span class="line">(<span class="number">3</span>)<span class="keyword">defer</span>可改变函数中的命名返回值</span><br><span class="line">(<span class="number">4</span>)<span class="keyword">defer</span>的使用经常伴随闭包和匿名函数的使用。</span><br><span class="line">   闭包：可以使用另外一个函数作用域中的变量的函数。</span><br><span class="line">   匿名函数：没有函数名的函数。</span><br><span class="line">(<span class="number">5</span>)<span class="keyword">defer</span>可以用于资源的释放，连接的关闭等。</span><br><span class="line">(<span class="number">6</span>)在使用<span class="keyword">defer</span>是谨记<span class="keyword">return</span>并不是一个原子操作，实际上为：</span><br><span class="line">   给返回值赋值；</span><br><span class="line">   调用<span class="keyword">defer</span>表达式；</span><br><span class="line">   返回给调用函数(空的<span class="keyword">return</span>)</span><br><span class="line">(<span class="number">7</span>)<span class="keyword">defer</span>延迟是相对于函数块而言，而不是代码块(<span class="keyword">for</span>，<span class="keyword">switch</span>等)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例</p>
+<p>（1）后进先出（同时验证了defer表达式中的值在表达式被定义时就已经明确）</p>
+<a id="more"></a>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">a</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(i)    <span class="comment">// 执行到defer，将defer后表达式放入list中，此时i=0，则表达式中i为0</span></span><br><span class="line">	i ++</span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(i)    <span class="comment">// 此时i=1</span></span><br><span class="line">	i = <span class="number">5</span></span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(i)    <span class="comment">// 此时i=5</span></span><br><span class="line">	i = <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为： 5，1，0</p>
+<p>将defer后表达式放入list时，i依次为0，1，5；后进先出为5，1，0</p>
+<p>（2）defer可改变函数中的命名返回值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回命名返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">b</span><span class="params">()</span> <span class="params">(i <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		i++</span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>            <span class="comment">// return 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通返回值类型</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">b1</span><span class="params">()</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	a := <span class="number">0</span></span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">      a++           <span class="comment">// defer被插入到赋值与返回之间即a:=0,t=a,最后return的是t</span></span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">return</span> a         <span class="comment">// return 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（3）和匿名函数的使用（for的使用证实了延迟是相对于函数块而言，而不是代码块，所以最后为5）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">c</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>;i &lt; <span class="number">5</span>;i ++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"i:"</span>, i)</span><br><span class="line">		<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">			fmt.Println(i)</span><br><span class="line">		&#125;()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出为： 0 1 2 3 4 5 5 5 5 5</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将i作为参数传入defer中，传入最初就会进行值保存，只是没有执行延迟函数而已。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">c1</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>;i &lt; <span class="number">5</span>;i ++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"i:"</span>, i)</span><br><span class="line">		<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(id <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">			fmt.Println(id)</span><br><span class="line">		&#125;(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出为：0 1 2 3 4 4 3 2 1 0</p>
+</li>
 </ul>
-<p>（1）Strong 一致性模式（默认使用）</p>
-<p>​      在强一致模式下，session 的读写操作总向 primary 服务器发起并使用一个唯一的连接，即读写都是在主节点上通过同一个连接实现，这样读写是完全一致、有序并且是最新的数据。这种模式在分布式负载架构下没有多少益处，但是保证了读写数据的一致性。</p>
-<p>（2）Monotonic 一致性模式</p>
-<p>​      在Monotonic一致模式下，读到的数据不一定是最新的，但是在同一个session中的一系列读保持着数据一致性，而session中的修改在其后的查询中可以得到体现。</p>
-<p>​       session 的读操作开始是向某个 secondary 服务器发起（且通过一个唯一的连接），只要出现了一次写操作，session 的连接就会切换至 primary 服务器。由此可见此模式下，能够分散一些读操作到 secondary 服务器，但是读操作不一定能够获得最新的数据。</p>
-<p>（3）Eventual 一致性模式</p>
-<p>​        Eventual 对读写分离的性能提升最强。</p>
-<p>​        session 的读操作会向任意的 secondary 服务器发起，多次读操作并不一定使用相同的连接，也就是读操作不一定有序。session 的写操作总是向 primary 服务器发起，但是可能使用不同的连接，也就是写操作也不一定有序。</p>
-<p>可以使用在网上搜索到的一张图（忘了出处，不好意思）来对三种模式进行对比：</p>
-<p><img src="/assets/blogImg/setmode.jpg" alt=""></p>
 
       
 
@@ -228,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mgo基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
         		</li>
       		
 		</ul>
@@ -284,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://tongyuehong1.github.io/2018/02/03/session/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://tongyuehong1.github.io/2017/11/25/defer/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,9 +294,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/12/01/closure/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          closure
+        
+      </div>
+    </a>
   
-    <a href="/2018/02/01/closure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">closure</div>
+  
+    <a href="/2017/11/20/buffer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">buffer源码导读</div>
       <i class="icon-circle-right"></i>
     </a>
   
