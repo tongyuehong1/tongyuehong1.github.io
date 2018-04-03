@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tongyuehong1.github.io">
-  <title>Archives | 博客</title>
+  <title>buffer源码导读 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="18年毕业生一枚，紧抱go语言大腿。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://tongyuehong1.github.io/archives/index.html">
+  <meta name="description" content="12345678package bytesimport (	&quot;errors&quot;	&quot;io&quot;	&quot;unicode/utf8&quot;) 结构12345678type Buffer struct &amp;#123;	buf      []byte // 存取的数据是是buf[off : len(buf)]（从off到len（buf）切片的内容）	off      int    // 从&amp;amp;buf[off]地址读数据">
+<meta name="keywords" content="go基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="buffer源码导读">
+<meta property="og:url" content="http://tongyuehong1.github.io/2017/11/20/buffer/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta property="og:description" content="12345678package bytesimport (	&quot;errors&quot;	&quot;io&quot;	&quot;unicode/utf8&quot;) 结构12345678type Buffer struct &amp;#123;	buf      []byte // 存取的数据是是buf[off : len(buf)]（从off到len（buf）切片的内容）	off      int    // 从&amp;amp;buf[off]地址读数据">
+<meta property="og:updated_time" content="2018-04-03T03:39:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta name="twitter:title" content="buffer源码导读">
+<meta name="twitter:description" content="12345678package bytesimport (	&quot;errors&quot;	&quot;io&quot;	&quot;unicode/utf8&quot;) 结构12345678type Buffer struct &amp;#123;	buf      []byte // 存取的数据是是buf[off : len(buf)]（从off到len（buf）切片的内容）	off      int    // 从&amp;amp;buf[off]地址读数据">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -148,160 +150,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-buffer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/03/session/" class="archive-article-date">
-  	<time datetime="2018-02-03T15:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/03/session/">session的一致性</a>
+    <h1 class="article-title" itemprop="name">
+      buffer源码导读
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mgo基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/01/closure/" class="archive-article-date">
-  	<time datetime="2018-02-01T14:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/01/closure/">closure</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/25/defer/" class="archive-article-date">
-  	<time datetime="2018-01-25T02:59:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/25/defer/">defer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/buffer/" class="archive-article-date">
+        
+        <a href="/2017/11/20/buffer/" class="archive-article-date">
   	<time datetime="2017-11-20T03:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/buffer/">buffer源码导读</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> bytes</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"unicode/utf8"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Buffer <span class="keyword">struct</span> &#123;</span><br><span class="line">	buf      []<span class="keyword">byte</span> <span class="comment">// 存取的数据是是buf[off : len(buf)]（从off到len（buf）切片的内容）</span></span><br><span class="line">	off      <span class="keyword">int</span>    <span class="comment">// 从&amp;buf[off]地址读数据, 从&amp;buf[len(buf)]地址写数据</span></span><br><span class="line">	lastRead readOp  <span class="comment">//最后读取操作（可容纳一个字节），可用于判断上次读操作是否成功，每次读操作的开始都会标为—1</span></span><br><span class="line">	bootstrap [<span class="number">64</span>]<span class="keyword">byte</span> <span class="comment">//一个较小的分配好的内存，如果数据过小则直接令b.buf=bootstrap，避免再次分配空间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> readOp <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在Go语言中支持两个字符类型，一个是 byte （实际上是 uint8 的别名），代表UTF-8字符串的单个字节的值；</span></span><br><span class="line"><span class="comment">// 另一个是 rune ，代表单个Unicode字符。(与int32等价)</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	opRead      readOp = <span class="number">-1</span> <span class="comment">// 其它的读操作</span></span><br><span class="line">	opInvalid          = <span class="number">0</span>  </span><br><span class="line">	opReadRune1        = <span class="number">1</span>  </span><br><span class="line">	opReadRune2        = <span class="number">2</span>  </span><br><span class="line">	opReadRune3        = <span class="number">3</span>  </span><br><span class="line">	opReadRune4        = <span class="number">4</span>  </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果不能将内存分配到缓冲区存储数据，就会传递ErrTooLarge引起恐慌</span></span><br><span class="line"><span class="keyword">var</span> ErrTooLarge = errors.New(<span class="string">"bytes.Buffer: too large"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="简单方法"><a href="#简单方法" class="headerlink" title="简单方法"></a>简单方法</h3><ul>
+<li>Bytes</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bytes()返回未读部分的切片</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Bytes</span><span class="params">()</span> []<span class="title">byte</span></span> &#123; <span class="keyword">return</span> b.buf[b.off:] &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>String</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String()将缓冲区未读的部分以字符串的形式返回</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> b == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="comment">// 特殊情况，防止出错</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"&lt;nil&gt;"</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(b.buf[b.off:])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Len</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串未读部分的字节数</span></span><br><span class="line"><span class="comment">// b.Len() == len(b.Bytes()).</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> <span class="built_in">len</span>(b.buf) - b.off &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Cap</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回的是缓冲区分配的总空间</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Cap</span><span class="params">()</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> <span class="built_in">cap</span>(b.buf) &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="初始化、重置及截断"><a href="#初始化、重置及截断" class="headerlink" title="初始化、重置及截断"></a>初始化、重置及截断</h3><ul>
+<li>NewBuffer</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewBuffer</span><span class="params">(buf []<span class="keyword">byte</span>)</span> *<span class="title">Buffer</span></span> &#123; <span class="keyword">return</span> &amp;Buffer&#123;buf: buf&#125; &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>NewBufferString</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用一个string来初始化可读Buffer，并用string的内容填充Buffer.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewBufferString</span><span class="params">(s <span class="keyword">string</span>)</span> *<span class="title">Buffer</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;Buffer&#123;buf: []<span class="keyword">byte</span>(s)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Truncate</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 截断缓冲区，留下从b.off后n个未读元素，其余全部舍弃</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Truncate</span><span class="params">(n <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">		b.Reset()</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="comment">// 如果n&lt;0或者长于缓冲区长度，就报出恐慌</span></span><br><span class="line">	<span class="keyword">if</span> n &lt; <span class="number">0</span> || n &gt; b.Len() &#123;</span><br><span class="line">		<span class="built_in">panic</span>(<span class="string">"bytes.Buffer: truncation out of range"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 从0开始是因为这样不改变off之前的空间，如果从off开始的话，buffer的空间也就只剩n个</span></span><br><span class="line">	b.buf = b.buf[<span class="number">0</span> : b.off+n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Reset</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将缓冲区清空，没有数据可读</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Reset</span><span class="params">()</span></span> &#123;</span><br><span class="line">	b.buf = b.buf[:<span class="number">0</span>]</span><br><span class="line">	b.off = <span class="number">0</span></span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="扩大缓冲区容量"><a href="#扩大缓冲区容量" class="headerlink" title="扩大缓冲区容量"></a>扩大缓冲区容量</h3><ul>
+<li>tryGrowByReslice</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过重新切片扩大缓冲区长度，返回的是从哪开始写数据的索引和是否成功</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">tryGrowByReslice</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> l := <span class="built_in">len</span>(b.buf); l+n &lt;= <span class="built_in">cap</span>(b.buf) &#123;</span><br><span class="line">		b.buf = b.buf[:l+n]</span><br><span class="line">		<span class="keyword">return</span> l, <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>, <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>grow</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩大容量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">grow</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	m := b.Len()</span><br><span class="line">	<span class="comment">// 如果Buffer为空，重置Buffer</span></span><br><span class="line">	<span class="keyword">if</span> m == <span class="number">0</span> &amp;&amp; b.off != <span class="number">0</span> &#123;</span><br><span class="line">		b.Reset()</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> i, ok := b.tryGrowByReslice(n); ok &#123;</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 如果buffer为空而且n&lt;len(b.bootstrap),就让buffer的空间等于b.bootstrap[:n],因为于b.bootstrap本来就有，直接等他就可以，即可以不用重新分配内存</span></span><br><span class="line">	<span class="keyword">if</span> b.buf == <span class="literal">nil</span> &amp;&amp; n &lt;= <span class="built_in">len</span>(b.bootstrap) &#123;</span><br><span class="line">		b.buf = b.bootstrap[:n]</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 如果未读数据与要扩大的长度小于等于给buf分配空间的一半，将未读元素复制到buf中</span></span><br><span class="line">	<span class="comment">// 二分之一是避免在copy是数据重叠引起数据丢失</span></span><br><span class="line">	<span class="comment">// (copy长度为二者中较小切片的长度)</span></span><br><span class="line">	<span class="keyword">if</span> m+n &lt;= <span class="built_in">cap</span>(b.buf)/<span class="number">2</span> &#123;</span><br><span class="line">		<span class="built_in">copy</span>(b.buf[:], b.buf[b.off:])</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// 如果不是，就重新申请切片，并将buffer中的数据复制过来</span></span><br><span class="line">		buf := makeSlice(<span class="number">2</span>*<span class="built_in">cap</span>(b.buf) + n)</span><br><span class="line">		<span class="built_in">copy</span>(buf, b.buf[b.off:])</span><br><span class="line">		b.buf = buf</span><br><span class="line">	&#125;</span><br><span class="line">	b.off = <span class="number">0</span></span><br><span class="line">	b.buf = b.buf[:m+n]</span><br><span class="line">	<span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>makeSlice</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeSlice</span><span class="params">(n <span class="keyword">int</span>)</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">	<span class="comment">// 如果make失败，给出提醒</span></span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">recover</span>() != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="built_in">panic</span>(ErrTooLarge)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="comment">// make一个n字节的切片</span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">make</span>([]<span class="keyword">byte</span>, n)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Grow</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩大buffer的容量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Grow</span><span class="params">(n <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n &lt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(<span class="string">"bytes.Buffer.Grow: negative count"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	m := b.grow(n)</span><br><span class="line">	b.buf = b.buf[<span class="number">0</span>:m]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="写入buffer的操作"><a href="#写入buffer的操作" class="headerlink" title="写入buffer的操作"></a>写入buffer的操作</h3><ul>
+<li>Write</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 往buffer中写数据，b.tryGrowByReslice(len(p))令buf的长度增加要读入的字节长度，返回的是写数据的位置，如果b.tryGrowByReslice(len(p))没有成功，则调用grow扩大buf，最后将数据复制到缓冲区</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Write</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	m, ok := b.tryGrowByReslice(<span class="built_in">len</span>(p))</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		m = b.grow(<span class="built_in">len</span>(p))</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">copy</span>(b.buf[m:], p), <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WriteStrings</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与Write基本相同，只是存入的是string</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">WriteString</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	m, ok := b.tryGrowByReslice(<span class="built_in">len</span>(s))</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		m = b.grow(<span class="built_in">len</span>(s))</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">copy</span>(b.buf[m:], s), <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ReadFrom</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从io.Reader中取数据放到buffer中</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">ReadFrom</span><span class="params">(r io.Reader)</span> <span class="params">(n <span class="keyword">int64</span>, err error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="comment">// 如果buffer是空的，则重置buffer</span></span><br><span class="line">	<span class="keyword">if</span> b.off &gt;= <span class="built_in">len</span>(b.buf) &#123;</span><br><span class="line">		b.Reset()</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> free := <span class="built_in">cap</span>(b.buf) - <span class="built_in">len</span>(b.buf); free &lt; MinRead &#123;</span><br><span class="line">			<span class="comment">// 如果最后剩余的容量不够512字节</span></span><br><span class="line">			newBuf := b.buf</span><br><span class="line">			<span class="comment">// 若小于512且off+free小于512，表示Buffer从0到off之间的空间不足以存放当前Buffer中未读数据的大小</span></span><br><span class="line">			<span class="keyword">if</span> b.off+free &lt; MinRead &#123;</span><br><span class="line">				<span class="comment">// 缓冲区空间不足，则令newBuf空间变为原来的2倍</span></span><br><span class="line">				newBuf = makeSlice(<span class="number">2</span>*<span class="built_in">cap</span>(b.buf) + MinRead)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// 将原来缓冲区中未读的数据复制到临时缓冲区中</span></span><br><span class="line">			<span class="built_in">copy</span>(newBuf, b.buf[b.off:])</span><br><span class="line">			<span class="comment">// 把临时缓冲区未读数据存到b.buf中</span></span><br><span class="line">			b.buf = newBuf[:<span class="built_in">len</span>(b.buf)-b.off]</span><br><span class="line">			b.off = <span class="number">0</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// m为读入buf中数据的长度</span></span><br><span class="line">		m, e := r.Read(b.buf[<span class="built_in">len</span>(b.buf):<span class="built_in">cap</span>(b.buf)])</span><br><span class="line">		b.buf = b.buf[<span class="number">0</span> : <span class="built_in">len</span>(b.buf)+m]</span><br><span class="line">		n += <span class="keyword">int64</span>(m)</span><br><span class="line">		<span class="comment">// 从io往buf中放入数据遇到EOF停止</span></span><br><span class="line">		<span class="keyword">if</span> e == io.EOF &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> e != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, e</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WriteTo</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将buffer中的数据写入io.Write</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">WriteTo</span><span class="params">(w io.Writer)</span> <span class="params">(n <span class="keyword">int64</span>, err error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="keyword">if</span> b.off &lt; <span class="built_in">len</span>(b.buf) &#123;</span><br><span class="line">	<span class="comment">// </span></span><br><span class="line">		nBytes := b.Len()</span><br><span class="line">		m, e := w.Write(b.buf[b.off:])</span><br><span class="line">		<span class="keyword">if</span> m &gt; nBytes &#123;</span><br><span class="line">			<span class="built_in">panic</span>(<span class="string">"bytes.Buffer.WriteTo: invalid Write count"</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		b.off += m</span><br><span class="line">		n = <span class="keyword">int64</span>(m)</span><br><span class="line">		<span class="keyword">if</span> e != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, e</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> m != nBytes &#123;</span><br><span class="line">			<span class="keyword">return</span> n, io.ErrShortWrite</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// buffer为空，重置</span></span><br><span class="line">	b.Reset()</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WriteByte</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩大并写入</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">WriteByte</span><span class="params">(c <span class="keyword">byte</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	m, ok := b.tryGrowByReslice(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		m = b.grow(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	b.buf[m] = c</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WriteRune</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写入数据rune</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">WriteRune</span><span class="params">(r <span class="keyword">rune</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line"><span class="comment">//判断要写的数据rune是否小于utf8.RuneSelf</span></span><br><span class="line">	<span class="keyword">if</span> r &lt; utf8.RuneSelf &#123;</span><br><span class="line">	<span class="comment">// 调用WriteByte将其写入Buffer</span></span><br><span class="line">		b.WriteByte(<span class="keyword">byte</span>(r))</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>, <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="comment">// 扩大buffer</span></span><br><span class="line">	m, ok := b.tryGrowByReslice(utf8.UTFMax)</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		m = b.grow(utf8.UTFMax)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 将要写的数据rune编码成utf8并写入buffer中</span></span><br><span class="line">	n = utf8.EncodeRune(b.buf[m:m+utf8.UTFMax], r)</span><br><span class="line">	<span class="comment">// buf变为从0到m+n</span></span><br><span class="line">	b.buf = b.buf[:m+n]</span><br><span class="line">	<span class="keyword">return</span> n, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="从buffer往外读的操作"><a href="#从buffer往外读的操作" class="headerlink" title="从buffer往外读的操作"></a>从buffer往外读的操作</h3><ul>
+<li>Read</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读数据</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="keyword">if</span> b.off &gt;= <span class="built_in">len</span>(b.buf) &#123;</span><br><span class="line">		<span class="comment">// 如果buffer是空的，则重置</span></span><br><span class="line">		b.Reset()</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(p) == <span class="number">0</span> &#123;</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>, io.EOF</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 复制buf的数据到p,并调整off的位置标识可读位置</span></span><br><span class="line">	n = <span class="built_in">copy</span>(p, b.buf[b.off:])</span><br><span class="line">	b.off += n</span><br><span class="line">	<span class="comment">// 设置读标识符为opRead</span></span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		b.lastRead = opRead</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Next</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回buffer中从未读开始的n个数据</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">Next</span><span class="params">(n <span class="keyword">int</span>)</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	m := b.Len()</span><br><span class="line">	<span class="keyword">if</span> n &gt; m &#123;</span><br><span class="line">		n = m</span><br><span class="line">	&#125;</span><br><span class="line">	data := b.buf[b.off : b.off+n]</span><br><span class="line">	b.off += n</span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		b.lastRead = opRead</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ReadByte</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从buffer中读出一字节，并返回读出的内容</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">ReadByte</span><span class="params">()</span> <span class="params">(<span class="keyword">byte</span>, error)</span></span> &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="keyword">if</span> b.off &gt;= <span class="built_in">len</span>(b.buf) &#123;</span><br><span class="line">		<span class="comment">// Buffer is empty, reset to recover space.</span></span><br><span class="line">		b.Reset()</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>, io.EOF</span><br><span class="line">	&#125;</span><br><span class="line">	c := b.buf[b.off]</span><br><span class="line">	b.off++</span><br><span class="line">	b.lastRead = opRead</span><br><span class="line">	<span class="keyword">return</span> c, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ReadRune</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 读操作</span><br><span class="line">func (b *Buffer) ReadRune() (r rune, size int, err error) &#123;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	if b.off &gt;= len(b.buf) &#123;</span><br><span class="line">		// Buffer is empty, reset to recover space.</span><br><span class="line">		b.Reset()</span><br><span class="line">		return 0, 0, io.EOF</span><br><span class="line">	&#125;</span><br><span class="line">	c := b.buf[b.off]</span><br><span class="line">	// 判断要读的数据rune是否小于utf8.RuneSelf</span><br><span class="line">	if c &lt; utf8.RuneSelf &#123;</span><br><span class="line">	// 如果小于则将b.off加1，指向下次读数据的起始位置，并返回读出的数据，1，nil</span><br><span class="line">		b.off++</span><br><span class="line">		b.lastRead = opReadRune1</span><br><span class="line">		return rune(c), 1, nil</span><br><span class="line">	&#125;</span><br><span class="line">	// 解码 p 中的第一个字符，返回解码后的字符和 p 中被解码的字节数</span><br><span class="line">	// 即r为解码后的字符，n为被解码的字节数</span><br><span class="line">	r, n := utf8.DecodeRune(b.buf[b.off:])</span><br><span class="line">	// b.off依旧为未读数据的起始位置</span><br><span class="line">	b.off += n</span><br><span class="line">	// 进行了读操作</span><br><span class="line">	b.lastRead = readOp(n)</span><br><span class="line">	return r, n, nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ReadBytes</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">ReadBytes</span><span class="params">(delim <span class="keyword">byte</span>)</span> <span class="params">(line []<span class="keyword">byte</span>, err error)</span></span> &#123;</span><br><span class="line">	slice, err := b.readSlice(delim)</span><br><span class="line">	<span class="comment">// return a copy of slice. The buffer's backing array may</span></span><br><span class="line">	<span class="comment">// be overwritten by later calls.</span></span><br><span class="line">	line = <span class="built_in">append</span>(line, slice...)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>readSlice</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回数组中从读数据的起始位置到第一次出现delim之间的内容（包括起始）</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">readSlice</span><span class="params">(delim <span class="keyword">byte</span>)</span> <span class="params">(line []<span class="keyword">byte</span>, err error)</span></span> &#123;</span><br><span class="line"><span class="comment">//IndexByte(s,c)的功能是检查字节c在s中第一次出现的位置索引;如果s中不包含c则返回-1.</span></span><br><span class="line">	i := IndexByte(b.buf[b.off:], delim)</span><br><span class="line">	end := b.off + i + <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> i &lt; <span class="number">0</span> &#123;</span><br><span class="line">		end = <span class="built_in">len</span>(b.buf)</span><br><span class="line">		err = io.EOF</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// line为为buf中从未读数据起始部分开始到第一次出现delim之间的内容</span></span><br><span class="line">	（包括起始）</span><br><span class="line">	line = b.buf[b.off:end]</span><br><span class="line">	<span class="comment">// 令未读部分起始为delim的下一位</span></span><br><span class="line">	b.off = end</span><br><span class="line">	b.lastRead = opRead</span><br><span class="line">	<span class="keyword">return</span> line, err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ReadString</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将readSlice（）方法返回的内容转换成字符串</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">ReadString</span><span class="params">(delim <span class="keyword">byte</span>)</span> <span class="params">(line <span class="keyword">string</span>, err error)</span></span> &#123;</span><br><span class="line">	slice, err := b.readSlice(delim)</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(slice), err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="从buffer读数据失败"><a href="#从buffer读数据失败" class="headerlink" title="从buffer读数据失败"></a>从buffer读数据失败</h3><ul>
+<li>UnreadRune</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行了读rune操作却没有读取成功，则需要将b.off重新往前设置</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">UnreadRune</span><span class="params">()</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> b.lastRead &lt;= opInvalid &#123;</span><br><span class="line">	<span class="comment">// 由开始的const中可知，读rune成功的都大于0，小于等于0的读rune都不成功</span></span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> b.off &gt;= <span class="keyword">int</span>(b.lastRead) &#123;</span><br><span class="line">		b.off -= <span class="keyword">int</span>(b.lastRead)</span><br><span class="line">	&#125;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UnreadByte</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行了读取字节的操作却没有成功，则将b.off向前走一位</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(b *Buffer)</span> <span class="title">UnreadByte</span><span class="params">()</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> b.lastRead == opInvalid &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"bytes.Buffer: UnreadByte: previous operation was not a successful read"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	b.lastRead = opInvalid</span><br><span class="line">	<span class="keyword">if</span> b.off &gt; <span class="number">0</span> &#123;</span><br><span class="line">		b.off--</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -313,19 +321,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://tongyuehong1.github.io/2017/11/20/buffer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/01/25/defer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          defer
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -348,8 +447,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
