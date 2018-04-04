@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="读完buffer的源码之后，尝试着画出buffer的结构图，希望可以通过看图回忆起整个buffer使用的流程。图中包括了初始状态（用于做对比），reset，和最重要的grow方法涉及到的流程。对读写位置进行了标识。 值得注意的是，在使用buffer时，采取的是存多少扩展多少的方法，所以开始写入的位置是len(b.buf)。同时在写操作的函数中有所体现。（先扩展在存入，存多少扩展多少）。">
 <meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/1.jpg">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/2.png">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/3.png">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/4.png">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/5.png">
-<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/6.png">
-<meta property="og:updated_time" content="2018-04-04T06:53:02.000Z">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/2.jpg">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/3.jpg">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/4.jpg">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/5.jpg">
+<meta property="og:image" content="http://tongyuehong1.github.io/assets/blogImg/6.jpg">
+<meta property="og:updated_time" content="2018-04-04T06:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="buffer源码结构图">
 <meta name="twitter:description" content="读完buffer的源码之后，尝试着画出buffer的结构图，希望可以通过看图回忆起整个buffer使用的流程。图中包括了初始状态（用于做对比），reset，和最重要的grow方法涉及到的流程。对读写位置进行了标识。 值得注意的是，在使用buffer时，采取的是存多少扩展多少的方法，所以开始写入的位置是len(b.buf)。同时在写操作的函数中有所体现。（先扩展在存入，存多少扩展多少）。">
@@ -179,7 +179,7 @@
       
         <p>读完buffer的源码之后，尝试着画出buffer的结构图，希望可以通过看图回忆起整个buffer使用的流程。图中包括了初始状态（用于做对比），reset，和最重要的grow方法涉及到的流程。对读写位置进行了标识。</p>
 <p>值得注意的是，在使用buffer时，采取的是存多少扩展多少的方法，所以开始写入的位置是len(b.buf)。同时在写操作的函数中有所体现。（先扩展在存入，存多少扩展多少）。</p>
-<p><img src="/assets/blogImg/1.jpg" alt=""><br><a id="more"></a><br><img src="/assets/blogImg/2.png" alt=""><br><img src="/assets/blogImg/3.png" alt=""><br><img src="/assets/blogImg/4.png" alt=""><br><img src="/assets/blogImg/5.png" alt=""><br><img src="/assets/blogImg/6.png" alt=""></p>
+<p><img src="/assets/blogImg/1.jpg" alt=""><br><a id="more"></a><br><img src="/assets/blogImg/2.jpg" alt=""><br><img src="/assets/blogImg/3.jpg" alt=""><br><img src="/assets/blogImg/4.jpg" alt=""><br><img src="/assets/blogImg/5.jpg" alt=""><br><img src="/assets/blogImg/6.jpg" alt=""></p>
 
       
 
