@@ -390,6 +390,84 @@
 
 
   
+    <article id="post-bufferimg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/21/bufferimg/">buffer源码结构图</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/21/bufferimg/" class="archive-article-date">
+  	<time datetime="2017-11-21T06:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>读完buffer的源码之后，尝试着画出buffer的结构图，希望可以通过看图回忆起整个buffer使用的流程。图中包括了初始状态（用于做对比），reset，和最重要的grow方法涉及到的流程。对读写位置进行了标识。</p>
+<p>值得注意的是，在使用buffer时，采取的是存多少扩展多少的方法，所以开始写入的位置是len(b.buf)。同时在写操作的函数中有所体现。（先扩展在存入，存多少扩展多少）。</p>
+<p><img src="/assets/blogImg/1.jpg" alt=""><br>
+        
+          <a class="article-more-a" href="/2017/11/21/bufferimg/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/21/bufferimg/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-buffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
