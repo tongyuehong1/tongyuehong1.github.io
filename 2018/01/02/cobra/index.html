@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tongyuehong1.github.io">
-  <title>Archives: 2017 | 博客</title>
+  <title>cobra | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="18年毕业生一枚，紧抱go语言大腿。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://tongyuehong1.github.io/archives/2017/index.html">
+  <meta name="description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
+<meta name="keywords" content="go基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cobra">
+<meta property="og:url" content="http://tongyuehong1.github.io/2018/01/02/cobra/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta property="og:description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
+<meta property="og:updated_time" content="2018-04-18T13:08:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta name="twitter:title" content="cobra">
+<meta name="twitter:description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -148,74 +150,94 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-cobra" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cobra
+    </h1>
+  
+
+        
+        <a href="/2018/01/02/cobra/" class="archive-article-date">
+  	<time datetime="2018-01-02T13:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Cobra简单实用"><a href="#Cobra简单实用" class="headerlink" title="Cobra简单实用"></a>Cobra简单实用</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Cobra 是一个创建 CLI 命令行的 golang 库。</p>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>Cobra 建立在commands, arguments 和 flags的基础之上。<br>Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。</p>
+<p>命令可以包括子命令。原因如下：</p>
+<blockquote>
+<p>假设，我们将 docker 拆分成 docker-version、docker-ps、docker-pull 等等，那么它们共用的很多代码都得编译多次大大增加了可执行文件的总大小。在升级时，改动公有代码得多次改动，分发时得多次分发，不易维护同时增加了出错的概率。<br><a id="more"></a></p>
+</blockquote>
+<p>标志型参数与非标志型参数的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">非标志型参数可以理解为函数中普通的参数，它对于命令的执行没有什么影响，就像传递的参数不会改变函数的执行一样。 而标志性参数往往具有特殊的意义会对命令的行为产生影响。</span><br></pre></td></tr></table></figure>
+<p>举例说明</p>
+<blockquote>
+<p><code>docker rm job1 job2</code> 和 <code>docker rm -f job1 job2</code>，-f 是一个标志型参数，它有默认值为 true，-f 等同于 -f=1。如果 job1 和 job2 正在运行，则 <code>docker rm job1 job2</code> 不能将它们移除，而 <code>docker rm -f job1 job2</code> 可以将他们强制移除。由此看来，标志型参数往往具有特殊意义，可以对命令的行为。</p>
+</blockquote>
+<p>cobra与viper的使用稍微复杂，本节只介绍简单使用。</p>
+<h4 id="Cobra的使用"><a href="#Cobra的使用" class="headerlink" title="Cobra的使用"></a>Cobra的使用</h4><p>   在<a href="https://github.com/tongyuehong1/golang-training/tree/master/cobra_example" target="_blank" rel="noopener">示例</a>有一个简单示例。包括运行结果的截图。</p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u github.com/spf13/cobra/cobra</span><br></pre></td></tr></table></figure>
+<p>然后可以在应用中导入cobra包：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"github.com/spf13/cobra"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化</p>
+<p>使用命令<code>cobra init [yourApp]</code>将会创建初始化应用，包括基本代码，可以在这些基础代码上做修改以达到自己想要的效果，同时提供正确的文件结构。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra init cobra_example</span><br></pre></td></tr></table></figure>
+<p>默认会在src目录下创建文件cobra_example。</p>
+<p>或者在init时指明路径（要保证文件夹存在，此命令不会自动创建）</p>
+</li>
+<li><p>生成子命令</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra add subtest</span><br></pre></td></tr></table></figure>
+<p>执行此命令后也会自动生成.go文件并含有初始代码。</p>
+</li>
+<li><p>添加flags</p>
+<p>#####全局参数(Persistent Flags)</p>
+<p>一个参数可以是“持久的”，这意味着这个参数将被分配的命令以及该命令下的每个命令都可用。 对于全局参数，在根上分配一个参数作为持久参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RootCmd.PersistentFlags().BoolVarP(&amp;Verbose, <span class="string">"verbose"</span>, <span class="string">"v"</span>, <span class="literal">false</span>, <span class="string">"verbose output"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>#####         局部参数(Local Flags)
+</code></pre></li>
+</ul>
+<p>​         一个参数也可以在本地分配，只适用于该特定的命令。</p>
+<pre><code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RootCmd.Flags().StringVarP(&amp;Source, <span class="string">"source"</span>, <span class="string">"s"</span>, <span class="string">""</span>, <span class="string">"Source directory to read from"</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/session/" class="archive-article-date">
-  	<time datetime="2017-12-15T06:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/session/">session的一致性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mgo基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/01/closure/" class="archive-article-date">
-  	<time datetime="2017-12-01T14:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/01/closure/">closure</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -227,133 +249,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://tongyuehong1.github.io/2018/01/02/cobra/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/defer/" class="archive-article-date">
-  	<time datetime="2017-11-25T02:59:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/15/session/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">session的一致性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/defer/">defer</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/21/bufferimg/" class="archive-article-date">
-  	<time datetime="2017-11-21T06:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/bufferimg/">buffer源码结构图</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/buffer/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/buffer/">buffer源码导读</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -376,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
