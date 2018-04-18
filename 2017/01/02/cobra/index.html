@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tongyuehong1.github.io">
-  <title>博客</title>
+  <title>cobra | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="18年毕业生一枚，紧抱go语言大腿。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://tongyuehong1.github.io/index.html">
+  <meta name="description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
+<meta name="keywords" content="go基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cobra">
+<meta property="og:url" content="http://tongyuehong1.github.io/2017/01/02/cobra/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta property="og:description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
+<meta property="og:updated_time" content="2018-04-18T13:06:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="18年毕业生一枚，紧抱go语言大腿。">
+<meta name="twitter:title" content="cobra">
+<meta name="twitter:description" content="Cobra简单实用简介Cobra 是一个创建 CLI 命令行的 golang 库。 组成Cobra 建立在commands, arguments 和 flags的基础之上。Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。 命令可以包括子命令。原因如下：  假设，我们将 docker 拆分成 docker-version、docker-ps、doc">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -148,411 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-cobra" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/session/">session的一致性</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/15/session/" class="archive-article-date">
-  	<time datetime="2017-12-15T06:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>mgo是mongodb的Golang驱动。</p>
-<h4 id="Dial"><a href="#Dial" class="headerlink" title="Dial"></a>Dial</h4><hr>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session ,_ := mgo.Dial(<span class="string">"mongodb://127.0.0.1"</span>)</span><br></pre></td></tr></table></figure>
-<p>mgo.session是mgo面向调用者的核心结构，而dial函数演示了如何获取一个session。（每次使用时并不是使用这个源session，而是每次都copy一个临时的session，可参考：<a href="https://cardinfolink.github.io/2017/05/17/mgo-session/" target="_blank" rel="noopener">mgo的session与连接池</a>）</p>
-<p>Dial 创建的多个 session 之间使用不同的连接池。而通过Dial出的session通过自身的 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.New" target="_blank" rel="noopener">New</a> 和 <a href="http://godoc.org/gopkg.in/mgo.v2#Session.Copy" target="_blank" rel="noopener">Copy</a> 方法能够创建更多的 session 出来，这些 session 共用底层的连接池。<br>
-        
-          <a class="article-more-a" href="/2017/12/15/session/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mgo基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/session/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/01/closure/">closure</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/01/closure/" class="archive-article-date">
-  	<time datetime="2017-12-01T14:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>​    当我们不想给函数起名字时，可以使用匿名函数。这样的函数不能独立存在，但是可以将它赋值给一个变量，即把函数的地址保存到变量中。eg: example := func (i int) {fmt.printf(i)}. 然后通过变量名对函数进行使用，eg: example(2). 也可以直接对匿名函数进行调用。eg: func(x, y) {return x + y}(1,2). </p>
-<p>​    在函数式语言中，匿名函数也被称为闭包，他们可以调用定义在其他环境下的变量。一个闭包继承了函数所声明时的作用域。这种状态（作用域内的变量）都被共享到闭包的环境中，因此这些变量可以在闭包中被操作，直到被销毁。</p>
-<ul>
-<li><p>示例</p>
-        
-          <a class="article-more-a" href="/2017/12/01/closure/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/01/closure/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-defer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/25/defer/">defer</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/25/defer/" class="archive-article-date">
-  	<time datetime="2017-11-25T02:59:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><ul>
-<li><p>特性</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)<span class="keyword">defer</span>表达式中变量的值在<span class="keyword">defer</span>表达式被定义时就已经明确。即当<span class="keyword">defer</span>被声明时，其参数就会被实时解析。</span><br><span class="line">(<span class="number">2</span>)后进先出      <span class="keyword">defer</span>后的表达式被放入一个list中，相当于一个栈，后进先出。</span><br><span class="line">(<span class="number">3</span>)<span class="keyword">defer</span>可改变函数中的命名返回值</span><br><span class="line">(<span class="number">4</span>)<span class="keyword">defer</span>的使用经常伴随闭包和匿名函数的使用。</span><br><span class="line">   闭包：可以使用另外一个函数作用域中的变量的函数。</span><br><span class="line">   匿名函数：没有函数名的函数。</span><br><span class="line">(<span class="number">5</span>)<span class="keyword">defer</span>可以用于资源的释放，连接的关闭等。</span><br><span class="line">(<span class="number">6</span>)在使用<span class="keyword">defer</span>是谨记<span class="keyword">return</span>并不是一个原子操作，实际上为：</span><br><span class="line">   给返回值赋值；</span><br><span class="line">   调用<span class="keyword">defer</span>表达式；</span><br><span class="line">   返回给调用函数(空的<span class="keyword">return</span>)</span><br><span class="line">(<span class="number">7</span>)<span class="keyword">defer</span>延迟是相对于函数块而言，而不是代码块(<span class="keyword">for</span>，<span class="keyword">switch</span>等)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例</p>
-<p>（1）后进先出（同时验证了defer表达式中的值在表达式被定义时就已经明确）</p>
-        
-          <a class="article-more-a" href="/2017/11/25/defer/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/25/defer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bufferimg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/bufferimg/">buffer源码结构图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/21/bufferimg/" class="archive-article-date">
-  	<time datetime="2017-11-21T06:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>读完buffer的源码之后，尝试着画出buffer的结构图，希望可以通过看图回忆起整个buffer使用的流程。图中包括了初始状态（用于做对比），reset，和最重要的grow方法涉及到的流程。对读写位置进行了标识。</p>
-<p>值得注意的是，在使用buffer时，采取的是存多少扩展多少的方法，所以开始写入的位置是len(b.buf)。同时在写操作的函数中有所体现。（先扩展在存入，存多少扩展多少）。</p>
-<p><img src="/assets/blogImg/1.jpg" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/11/21/bufferimg/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/21/bufferimg/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-buffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/buffer/">buffer源码导读</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/20/buffer/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> bytes</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"unicode/utf8"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Buffer <span class="keyword">struct</span> &#123;</span><br><span class="line">	buf      []<span class="keyword">byte</span> <span class="comment">// 存取的数据是是buf[off : len(buf)]（从off到len（buf）切片的内容）</span></span><br><span class="line">	off      <span class="keyword">int</span>    <span class="comment">// 从&amp;buf[off]地址读数据, 从&amp;buf[len(buf)]地址写数据</span></span><br><span class="line">	lastRead readOp  <span class="comment">//最后读取操作（可容纳一个字节），可用于判断上次读操作是否成功，每次读操作的开始都会标为—1</span></span><br><span class="line">	bootstrap [<span class="number">64</span>]<span class="keyword">byte</span> <span class="comment">//一个较小的分配好的内存，如果数据过小则直接令b.buf=bootstrap，避免再次分配空间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> readOp <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/20/buffer/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">go基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/20/buffer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cobra" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/cobra/">cobra</a>
+    <h1 class="article-title" itemprop="name">
+      cobra
     </h1>
   
 
@@ -569,12 +174,65 @@
 <h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>Cobra 建立在commands, arguments 和 flags的基础之上。<br>Commands 表示操作（命令）, Args 是参数 ，Flags(标志型参数) 是对操作的修饰。</p>
 <p>命令可以包括子命令。原因如下：</p>
 <blockquote>
-<p>假设，我们将 docker 拆分成 docker-version、docker-ps、docker-pull 等等，那么它们共用的很多代码都得编译多次大大增加了可执行文件的总大小。在升级时，改动公有代码得多次改动，分发时得多次分发，不易维护同时增加了出错的概率。<br>
-        
-          <a class="article-more-a" href="/2017/01/02/cobra/#more">more >></a>
-        
+<p>假设，我们将 docker 拆分成 docker-version、docker-ps、docker-pull 等等，那么它们共用的很多代码都得编译多次大大增加了可执行文件的总大小。在升级时，改动公有代码得多次改动，分发时得多次分发，不易维护同时增加了出错的概率。<br><a id="more"></a></p>
+</blockquote>
+<p>标志型参数与非标志型参数的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">非标志型参数可以理解为函数中普通的参数，它对于命令的执行没有什么影响，就像传递的参数不会改变函数的执行一样。 而标志性参数往往具有特殊的意义会对命令的行为产生影响。</span><br></pre></td></tr></table></figure>
+<p>举例说明</p>
+<blockquote>
+<p><code>docker rm job1 job2</code> 和 <code>docker rm -f job1 job2</code>，-f 是一个标志型参数，它有默认值为 true，-f 等同于 -f=1。如果 job1 和 job2 正在运行，则 <code>docker rm job1 job2</code> 不能将它们移除，而 <code>docker rm -f job1 job2</code> 可以将他们强制移除。由此看来，标志型参数往往具有特殊意义，可以对命令的行为。</p>
+</blockquote>
+<p>cobra与viper的使用稍微复杂，本节只介绍简单使用。</p>
+<h4 id="Cobra的使用"><a href="#Cobra的使用" class="headerlink" title="Cobra的使用"></a>Cobra的使用</h4><p>   在<a href="https://github.com/tongyuehong1/golang-training/tree/master/cobra_example" target="_blank" rel="noopener">示例</a>有一个简单示例。包括运行结果的截图。</p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u github.com/spf13/cobra/cobra</span><br></pre></td></tr></table></figure>
+<p>然后可以在应用中导入cobra包：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"github.com/spf13/cobra"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化</p>
+<p>使用命令<code>cobra init [yourApp]</code>将会创建初始化应用，包括基本代码，可以在这些基础代码上做修改以达到自己想要的效果，同时提供正确的文件结构。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra init cobra_example</span><br></pre></td></tr></table></figure>
+<p>默认会在src目录下创建文件cobra_example。</p>
+<p>或者在init时指明路径（要保证文件夹存在，此命令不会自动创建）</p>
+</li>
+<li><p>生成子命令</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra add subtest</span><br></pre></td></tr></table></figure>
+<p>执行此命令后也会自动生成.go文件并含有初始代码。</p>
+</li>
+<li><p>添加flags</p>
+<p>#####全局参数(Persistent Flags)</p>
+<p>一个参数可以是“持久的”，这意味着这个参数将被分配的命令以及该命令下的每个命令都可用。 对于全局参数，在根上分配一个参数作为持久参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RootCmd.PersistentFlags().BoolVarP(&amp;Verbose, <span class="string">"verbose"</span>, <span class="string">"v"</span>, <span class="literal">false</span>, <span class="string">"verbose output"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>#####         局部参数(Local Flags)
+</code></pre></li>
+</ul>
+<p>​         一个参数也可以在本地分配，只适用于该特定的命令。</p>
+<pre><code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RootCmd.Flags().StringVarP(&amp;Source, <span class="string">"source"</span>, <span class="string">"s"</span>, <span class="string">""</span>, <span class="string">"Source directory to read from"</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -594,16 +252,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/02/cobra/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://tongyuehong1.github.io/2017/01/02/cobra/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/11/20/buffer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          buffer源码导读
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -623,8 +344,14 @@
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -647,8 +374,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
